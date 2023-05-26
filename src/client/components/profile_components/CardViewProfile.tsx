@@ -1,6 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { Dimensions, StyleSheet, Text, View, Image } from 'react-native';
+import DetailProfileCardView from './DetailProfileCardView';
 
 export default function CardViewProfile() {
   return (
@@ -10,11 +11,10 @@ export default function CardViewProfile() {
         <Text>Jérémmy</Text>
       </View>
       <View>
-        <Text>2</Text>
-        <Text>Reviews</Text>
-        
+        <DetailProfileCardView description="Reviews" value={2} icon="" hasBorder={true} ></DetailProfileCardView>
+        <DetailProfileCardView description="Rating" value={5.0} icon="" hasBorder={true} ></DetailProfileCardView>
+        <DetailProfileCardView description="Years hosting" value={3} icon="" hasBorder={false} ></DetailProfileCardView>
       </View>
-      <StatusBar style="auto" />
     </View>
   );
 }
@@ -23,12 +23,19 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: "row",
-    backgroundColor: '#fff',
+    backgroundColor: '#000',
     alignItems: 'center',
     justifyContent: 'center',
+    borderColor: "#000000",
+    borderWidth: 2,
+    borderRadius: Dimensions.get('window').height * 0.10
+    
   },
   imageProfile: {
     width: 200,
     height: '20%',
   },
+  border: {
+    
+  }
 });
