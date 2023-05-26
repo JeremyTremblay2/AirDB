@@ -8,7 +8,6 @@
 Icon
 
 src/client/node_modules/*
-src/client/package-lock.json
 
 # Thumbnails
 ._*
