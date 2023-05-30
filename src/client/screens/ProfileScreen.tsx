@@ -1,15 +1,19 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { FlatList, StyleSheet, Text, View } from 'react-native';
 import CardViewProfile from '../components/profile_components/CardViewProfile';
+import OpinionsView from '../components/profile_components/opinions_components/OpinionsView';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <CardViewProfile/>
-      <Text>Description</Text>
-      <Text>kojilhukgyjfthdrgchvjklpùkhtyfrgdefsghjklmkyhtfgrdsghjklmjghftdrsefghjklmjhgfdsqfghjklmgyhtfgrdesqfghjlpùmoilukyjthrgedfsdqfghyijomilukyjthfrgdfsfvghjklmjhgfdvsghjklhgnfbdvsxfghjkljhgnfbdvghjkhgnfbdvxsfcvghjgnfbdvxsfvghjkhgnfdxghjkhgfbdvxghj;hgnfbdcxvfghkjgnfbdvxccghjkfbdcvxcbnghkjgfcdvxcfvghukyjtghfdgcfghuiyghfdxvcfghuythfdcxvcguygfvcbnghjg</Text>
+      <View style={styles.divCardViewProfile}>
+        <CardViewProfile/>
+      </View>
       
+      <Text style={[styles.margin, styles.subTitle]}>Description</Text>
+      <Text style={styles.margin}>kojilhukgyjfthdrgchvjklpùkhtyfrgdefsghjklmkyhtfgrdsghjklmjghftdrsefghjklmjhgfdsqfghjklmgyhtfgrdesqfghjlpùmoilukyjthrgedfsdqfghyijomilukyjthfrgdfsfvghjklmjhgfdvsghjklhgnfbdvsxfghjkljhgnfbdvghjkhgnfbdvxsfcvghjgnfbdvxsfvghjkhgnfdxghjkhgfbdvxghj;hgnfbdcxvfghkjgnfbdvxccghjkfbdcvxcbnghkjgfcdvxcfvghukyjtghfdgcfghuiyghfdxvcfghuythfdcxvcguygfvcbnghjg</Text>
+      <OpinionsView name='Jérémy'/>
     </View>
   );
 }
@@ -18,7 +22,17 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
     justifyContent: 'center',
   },
+  margin:{
+    marginHorizontal:20,
+    marginVertical:5
+  },
+  divCardViewProfile: {
+   alignItems:'center' 
+  },
+  subTitle: {
+    fontSize:20,
+  }
+  
 });

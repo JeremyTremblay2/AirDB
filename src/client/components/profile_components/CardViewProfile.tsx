@@ -7,13 +7,19 @@ export default function CardViewProfile() {
   return (
     <View style={styles.container}>
       <View style={styles.divFirstPart}>
-        <Image source={require('../../assets/adaptive-icon.png')} style={styles.imageProfile}/>
-        <Text>Jérémmy</Text>
+        <Image source={require('../../assets/profile_photo_test.jpg')} style={styles.imageProfile}/>
+        <Text>Jérémy</Text>
       </View>
       <View>
-        <DetailProfileCardView description="Reviews" value={2} icon="" hasBorder={true}/>
-        <DetailProfileCardView description="Rating" value={5.0} icon="" hasBorder={true}/>
-        <DetailProfileCardView description="Years hosting" value={3} icon="" hasBorder={false}/>
+        <View style={styles.divDetailPart}>
+          <DetailProfileCardView description="Reviews" value={2} icon="" hasBorder={true} hasIcon={false}/>
+        </View>
+        <View style={styles.divDetailPart}>
+          <DetailProfileCardView description="Rating" value={5.0} icon='../../assets/star.png' hasBorder={true} hasIcon={true}/>
+        </View>
+        <View style={styles.divDetailPart}>
+          <DetailProfileCardView description="Years hosting" value={3} icon="" hasBorder={false} hasIcon={false}/>
+        </View>
       </View>
     </View>
   );
@@ -26,7 +32,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     borderColor: "#000000",
-    borderWidth: 2,
+    borderWidth: 1,
     maxHeight: Dimensions.get('window').height * 0.30,
     borderRadius: 20
   },
@@ -37,10 +43,18 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     maxWidth: '60%',
   },
-  imageProfile: {
-    width: 200,
-    height: '70%',
-    margin: 20
+  divDetailPart: {
+    marginVertical:3,
+    paddingHorizontal:20
   },
+  imageProfile: {
+    width: '60%',
+    height: '60%',
+    margin: 20,
+    borderWidth: 1,
+    borderColor:'transparent',
+    borderRadius: 100
+  },
+  
 
 });
