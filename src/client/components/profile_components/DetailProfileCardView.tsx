@@ -25,6 +25,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+    margin: 10
   },
   imageProfile: {
     width: 200,
@@ -32,5 +33,5 @@ const styles = StyleSheet.create({
   },
   border: ({
         borderColor: "thistle",
-    })
+  }),
 })
