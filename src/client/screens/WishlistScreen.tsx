@@ -3,11 +3,11 @@ import { View, Text, StyleSheet } from "react-native";
 
 export default function WishlistScreen() {
     return (
-      <View style={styles.container}>
-        <View style={styles.centered}>
-          <Text style={styles.title}>Your wishlist !</Text>
+        <View style={styles.container}>
+            <View style={styles.centered}>
+                <Text style={styles.title}>Your wishlist !</Text>
+            </View>
         </View>
-      </View>
     )
 };
 

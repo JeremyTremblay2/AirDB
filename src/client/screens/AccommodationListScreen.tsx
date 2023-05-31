@@ -3,11 +3,11 @@ import { View, Text, StyleSheet } from "react-native";
 
 export default function AccomodationListScreen() {
     return (
-      <View style={styles.container}>
-        <View style={styles.centered}>
-          <Text style={styles.title}>A list of accomodation !</Text>
+        <View style={styles.container}>
+            <View style={styles.centered}>
+                <Text style={styles.title}>A list of accomodation !</Text>
+            </View>
         </View>
-      </View>
     )
 };
 
