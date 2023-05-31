@@ -2,7 +2,6 @@ import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
 import { FontAwesome } from '@expo/vector-icons';
-import ExploreScreen from "../screens/ExploreScreen";
 import WishlistScreen from "../screens/WishlistScreen";
 import ProfileScreen from "../screens/ProfileScreen";
 import AccomodationNavigator from "./AccomodationNavigator";
