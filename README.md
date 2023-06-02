@@ -73,12 +73,8 @@ Also, look at the `doc` folder at the root of this repository!
 * Github: [@LouisPerret](https://github.com/louis-perret)
 * LinkedIn: [@Louis Perret](https://fr.linkedin.com/in/louis-perret-a67a6321b)
 
-## ⚠️ Disclaimer
-
-This project in no way encourages the consumption of alcohol or beer, which is dangerous for your health and should be consumed in moderation.
-
 ## 📝 License
 
-we want to leave the possibility to other people to work on this project, to improve it and to make it grow, that's why we decided to place it under MIT license.
+We want to leave the possibility to other people to work on this project, to improve it and to make it grow, that's why we decided to place it under MIT license.
 
 > Read more about the [MIT licence](https://opensource.org/licenses/MIT).
