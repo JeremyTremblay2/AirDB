@@ -1,26 +1,16 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { Dimensions, StyleSheet, Text, View, Image } from 'react-native';
-import DetailProfileCardView from './DetailProfileCardView';
+
+type CheckedInformationCellProps = {
+    isChecked: Boolean,
+    text: string
+}
 
 export default function CardViewProfile() {
   return (
     <View style={styles.container}>
-      <View style={styles.divFirstPart}>
-        <Image source={require('../../assets/profile_photo_test.jpg')} style={styles.imageProfile}/>
-        <Text>Jérémy</Text>
-      </View>
-      <View>
-        <View style={styles.divDetailPart}>
-          <DetailProfileCardView description="Reviews" value={2} icon="" hasBorder={true} hasIcon={false}/>
-        </View>
-        <View style={styles.divDetailPart}>
-          <DetailProfileCardView description="Rating" value={5.0} icon='../../assets/star.png' hasBorder={true} hasIcon={true}/>
-        </View>
-        <View style={styles.divDetailPart}>
-          <DetailProfileCardView description="Years hosting" value={3} icon="" hasBorder={false} hasIcon={false}/>
-        </View>
-      </View>
+        <Text>Informations confirmées de Jérémy</Text>
+        
     </View>
   );
 }

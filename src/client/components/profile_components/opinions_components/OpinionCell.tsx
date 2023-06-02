@@ -23,7 +23,8 @@ const styles = StyleSheet.create({
         borderColor: "#000000",
         borderRadius: 20,
         padding:15,
-        maxWidth:'60%',
+        maxWidth:'25%',
+        height:'100%',
         marginHorizontal:15,
     },
     profileDiv: {
@@ -34,10 +35,11 @@ const styles = StyleSheet.create({
     imageProfile: {
         flex:1,
         height: '100%',
+        maxWidth:'25%',
         margin: 5,
         borderWidth: 1,
         borderColor:'transparent',
-        borderRadius: 40,
+        borderRadius: 90,
       },
     detailProfileDiv:{
         flex:2,
