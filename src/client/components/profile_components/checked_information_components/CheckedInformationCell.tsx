@@ -1,16 +1,18 @@
 import React from 'react';
 import { Dimensions, StyleSheet, Text, View, Image } from 'react-native';
+import { AntDesign } from '@expo/vector-icons'; 
+
 
 type CheckedInformationCellProps = {
     isChecked: Boolean,
     text: string
 }
 
-export default function CheckedInformationCell() {
+export default function CheckedInformationCell(props:CheckedInformationCellProps) {
   return (
     <View style={styles.container}>
-        <Text>Informations confirmées de Jérémy</Text>
-        
+        <AntDesign name="check" size={24} color="black" style={{ borderBottomWidth: props.isChecked ? 1 : 0 }}/>
+        <Text>{props.text}</Text>
     </View>
   );
 }
@@ -21,30 +23,6 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: 'center',
     justifyContent: 'center',
-    borderColor: "#000000",
-    borderWidth: 1,
-    maxHeight: Dimensions.get('window').height * 0.30,
-    borderRadius: 20
-  },
-  divFirstPart: {
-    flex: 1,
-    flexDirection: "column",
-    alignItems: 'center',
-    justifyContent: 'center',
-    maxWidth: '60%',
-  },
-  divDetailPart: {
-    marginVertical:3,
-    paddingHorizontal:20
-  },
-  imageProfile: {
-    width: '60%',
-    height: '60%',
-    margin: 20,
-    borderWidth: 1,
-    borderColor:'transparent', 
-    borderRadius: 100
   },
   
-
 });

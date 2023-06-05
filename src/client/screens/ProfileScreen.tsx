@@ -2,6 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { FlatList, ScrollView, StyleSheet, Text, View } from 'react-native';
 import CardViewProfile from '../components/profile_components/CardViewProfile';
+import CheckedInformationView from '../components/profile_components/checked_information_components/CheckedInformationView';
 import OpinionsView from '../components/profile_components/opinions_components/OpinionsView';
 
 export default function App() {
@@ -15,9 +16,9 @@ export default function App() {
         <Text style={[styles.margin, styles.subTitle]}>Description</Text>
         <Text style={styles.margin}>kojilhukgyjfthdrgchvjklpùkhtyfrgdefsghjklmkyhtfgrdsghjklmjghftdrsefghjklmjhgfdsqfghjklmgyhtfgrdesqfghjlpùmoilukyjthrgedfsdqfghyijomilukyjthfrgdfsfvghjklmjhgfdvsghjklhgnfbdvsxfghjkljhgnfbdvghjkhgnfbdvxsfcvghjgnfbdvxsfvghjkhgnfdxghjkhgfbdvxghj;hgnfbdcxvfghkjgnfbdvxccghjkfbdcvxcbnghkjgfcdvxcfvghukyjtghfdgcfghuiyghfdxvcfghuythfdcxvcguygfvcbnghjg</Text>
         <OpinionsView name='Jérémy'/>
+        <CheckedInformationView/>
       </View>
     </ScrollView>
-    
   );
 }
 
@@ -37,5 +38,4 @@ const styles = StyleSheet.create({
   subTitle: {
     fontSize:20,
   }
-  
 });
