@@ -6,7 +6,7 @@ type CheckedInformationCellProps = {
     text: string
 }
 
-export default function CardViewProfile() {
+export default function CheckedInformationCell() {
   return (
     <View style={styles.container}>
         <Text>Informations confirmées de Jérémy</Text>
