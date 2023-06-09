@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class FirstController {
     @RequestMapping("/")
     public String home() {
-        return "Hello World!";
+        String uri = "mongodb://@localhost:8080";
+        return "hello world";
     }
 }
