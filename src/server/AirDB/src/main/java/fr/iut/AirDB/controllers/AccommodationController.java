@@ -1,0 +1,7 @@
+package fr.iut.AirDB.controllers;
+
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class AccommodationController {
+}
