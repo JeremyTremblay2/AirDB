@@ -1,4 +1,4 @@
-package com.example.AirDB;
+package fr.iut.AirDB;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

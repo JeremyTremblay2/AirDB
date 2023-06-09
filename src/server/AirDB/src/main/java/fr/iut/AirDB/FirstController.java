@@ -1,4 +1,4 @@
-package com.example.AirDB;
+package fr.iut.AirDB;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class FirstController {
     @RequestMapping("/")
     public String home() {
-        return "Hello World!";
+        String uri = "mongodb://@localhost:8080";
+        return "hello world";
     }
 }
