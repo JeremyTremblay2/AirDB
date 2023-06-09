@@ -1,4 +1,4 @@
-package com.example.AirDB;
+package fr.iut.AirDB;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
