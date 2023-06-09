@@ -1,10 +1,12 @@
 package fr.iut.AirDB.entity;
 
+import org.bson.types.ObjectId;
+
 import java.time.LocalDate;
 
 public record Accommodation (
-        String id,
-        String profileId,
+        ObjectId id,
+        ObjectId profileId,
         String name,
         String[] pictures,
         float rating,

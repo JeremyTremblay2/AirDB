@@ -1,10 +1,12 @@
 package fr.iut.AirDB.entity;
 
+import org.bson.types.ObjectId;
+
 import java.time.LocalDate;
 
 public record Profile (
-        String id,
-        String[] housingIds,
+        ObjectId id,
+        ObjectId[] housingIds,
         String profileName,
         LocalDate hostingSince,
         LocalDate dateOfBirth,
