@@ -4,7 +4,7 @@ import org.bson.types.ObjectId;
 
 import java.time.LocalDate;
 
-public record Accommodation (
+public record AccommodationEntity(
         ObjectId id,
         ObjectId profileId,
         String name,
@@ -17,7 +17,7 @@ public record Accommodation (
         LocalDate endDate,
         String profileName,
         boolean isFavorite,
-        HousingCategory[] housingCategories
+        HousingCategoryEntity[] housingCategories
 ) {
 
 }

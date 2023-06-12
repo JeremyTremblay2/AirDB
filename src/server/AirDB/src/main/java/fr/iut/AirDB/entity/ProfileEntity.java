@@ -4,7 +4,7 @@ import org.bson.types.ObjectId;
 
 import java.time.LocalDate;
 
-public record Profile (
+public record ProfileEntity(
         ObjectId id,
         ObjectId[] housingIds,
         String profileName,
