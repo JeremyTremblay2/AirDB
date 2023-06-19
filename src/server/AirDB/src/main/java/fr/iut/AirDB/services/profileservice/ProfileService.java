@@ -17,6 +17,7 @@ import org.bson.Document;
 import org.bson.codecs.configuration.CodecRegistries;
 import org.bson.codecs.configuration.CodecRegistry;
 import org.bson.json.JsonObject;
+import org.bson.types.Code;
 
 import java.sql.Array;
 import java.util.ArrayList;
@@ -27,21 +28,24 @@ import static com.mongodb.client.model.Filters.eq;
 public class ProfileService extends BaseService {
 
     public ProfileService(String connectionString, String databaseName) {
-        super("profile", connectionString, databaseName);
+        super("profiles", connectionString, databaseName);
     }
 
     public ProfileEntity GetProfileById(String nameProfile){
         List<ProfileEntity> profile = new ArrayList<>();
+        CodecRegistry registry = CodecRegistries.fromCodecs(new ProfileEntityCodec());
         try (MongoClient mongoClient = MongoClients.create(connectionString)) {
+
             CodecRegistry codecRegistry = CodecRegistries.fromRegistries(
-                    CodecRegistries.fromCodecs(new ProfileEntityCodec()),
-                    CodecRegistries.fromProviders(new ProfileCodecProvider()),
+                    registry,
                     MongoClientSettings.getDefaultCodecRegistry());
 
             MongoDatabase database = mongoClient.getDatabase(databaseName);
             MongoCollection<ProfileEntity> collection = database.getCollection(COLLECTION, ProfileEntity.class).withCodecRegistry(codecRegistry);
 
-            collection.find().into(profile);
+            //collection.find().into(profile);
+            var toto = collection.find().first();
+            return toto;
             // collection.find(eq("profilName", nameProfile)).into(profile);
             /*if (doc != null) {
                 var profileJson = doc.toJson();
@@ -51,7 +55,7 @@ public class ProfileService extends BaseService {
                 System.out.println("No matching documents found.");
             }*/
         }
-        return profile.get(0);
+        // return profile.get(0);
     }
 
 }

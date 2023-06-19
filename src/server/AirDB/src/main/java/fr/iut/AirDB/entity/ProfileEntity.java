@@ -5,8 +5,8 @@ import org.bson.types.ObjectId;
 import java.time.LocalDate;
 
 public class ProfileEntity {
-    public ObjectId id;
-    public ObjectId[] housingIds;
+    public String id;
+    public String[] housingIds;
     public String profileName;
     public LocalDate hostingSince;
     public LocalDate dateOfBirth;
@@ -15,10 +15,10 @@ public class ProfileEntity {
     public String description;
 
     public ProfileEntity() {
-        this(new ObjectId(), new ObjectId[]{}, "", LocalDate.now(), LocalDate.now(), "", "", "");
+        this(new String(), new String[]{}, "", LocalDate.now(), LocalDate.now(), "", "", "");
     }
 
-    public ProfileEntity(ObjectId id, ObjectId[] housingIds, String profileName, LocalDate hostingSince, LocalDate dateOfBirth, String profilePicture, String location, String description) {
+    public ProfileEntity(String id, String[] housingIds, String profileName, LocalDate hostingSince, LocalDate dateOfBirth, String profilePicture, String location, String description) {
         this.id = id;
         this.housingIds = housingIds;
         this.profileName = profileName;

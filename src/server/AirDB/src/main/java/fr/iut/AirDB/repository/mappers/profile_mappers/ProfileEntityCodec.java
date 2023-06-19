@@ -17,7 +17,7 @@ public class ProfileEntityCodec implements Codec<ProfileEntity> {
             String fieldName = bsonReader.readName();
             switch (fieldName) {
                 case "_id" :
-                    profileEntity.id = bsonReader.readObjectId();
+                    profileEntity.id = bsonReader.readString();
                 case "profileName":
                     profileEntity.profileName = bsonReader.readString();
                 case "profilePicture":
