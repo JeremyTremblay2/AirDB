@@ -1,6 +1,6 @@
-package fr.iut.AirDB.entity;
+package fr.iut.AirDB.modele;
 
-public enum HousingCategoryEntity {
+public enum HousingCategory {
     ROOMS,
     AMAZING_POOLS,
     BEACHFRONT,
