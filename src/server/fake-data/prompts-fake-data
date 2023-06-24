@@ -1,0 +1,51 @@
+[
+    '{{repeat(15, 20)}}',
+    {
+      _id: '{{objectId()}}',
+      profilId: '{{objectId()}}',
+      name: '{{lorem(integer(2, 7), "words")}}',
+      pictures: [
+        '{{repeat(integer(1, 50))}}',
+        'https://picsum.photos/1000/1000'
+      ],
+      rating: '{{floating(0, 5)}}',
+      numberOfReviews: '{{integer(0, 200)}}',
+      location:'{{integer(100, 999)}} {{street()}}, {{city()}}, {{state()}}, {{integer(100, 10000)}}',
+      description: '{{lorem(2, "paragraphs")}}',
+      startDate: '{{date(new Date(2014, 0, 1), new Date(), "YYYY-MM-ddThh:mm:ss Z")}}',
+      endDate: '{{date(new Date(2016, 0, 1), new Date(), "YYYY-MM-ddThh:mm:ss Z")}}',
+      profilName: '{{firstName()}} {{surname()}}',
+      isFavorite: '{{bool()}}',
+      housingCategory: [
+        '{{repeat(integer(1, 5))}}',
+        '{{random("rooms", "amazing_pools", "beachfront", "omg", "treehouses", "countryside", "tiny_homes", "luxe", "lakefront", "trending", "domes", "cabins", "boats", "farms", "islands", "design", "mansions", "caves", "castles", "off_the_grid", "tropical", "vineyards", "creative_spaces", "skiing", "cycladic_homes", "camping", "national_parks", "new", "play", "riads", "iconic_cities", "earth_homes", "a-frames", "houseboats", "yurts", "historical_homes", "bed_&_breackfasts", "top_of_the_world", "ski-in/out", "ryokans", "casas_particulares", "hanoks", "shepherd\'s_huts", "barns", "containers", "containers", "surfing", "windmills", "desert", "chef\'s-kitchen", "minsus", "arctic", "camper_vans", "golfing", "towers", "adapted", "grand_pianos", "trulli", "dammusi", "beach", "lake")}}'
+        ]
+    },
+    '{{repeat(8, 20)}}',
+    {
+      _id: '{{objectId()}}',
+      housingIds: [
+        '{{repeat(integer(1, 8))}}',
+        '{{objectId()}}'
+      ],
+      profilName: '{{firstName()}} {{surname()}}',
+      hostingSince: '{{date(new Date(2014, 0, 1), new Date(), "YYYY-MM-ddThh:mm:ss Z")}}',
+      dateOfBirth: '{{date(new Date(1988, 0, 1), new Date(), "YYYY-MM-ddThh:mm:ss Z")}}',
+      profilePicture: 'https://picsum.photos/1000/1000',
+      rating: '{{floating(0, 5)}}',
+      numberOfReviews: '{{integer(0, 200)}}',
+      location:'{{integer(100, 999)}} {{street()}}, {{city()}}, {{state()}}, {{integer(100, 10000)}}',
+      description: '{{lorem(3, "paragraphs")}}'
+    },
+    '{{repeat(4, 10)}}',
+    {
+      _id: '{{objectId()}}',
+      authorId: '{{objectId()}}',
+      targetProfileId: '{{objectId()}}',
+      authorName: '{{firstName()}} {{surname()}}',
+      profilPictureAuthor: 'https://picsum.photos/1000/1000',
+      postedDate: '{{date(new Date(1988, 0, 1), new Date(), "YYYY-MM-ddThh:mm:ss Z")}}',
+      satifactionLevel: '{{integer(1, 5)}}',
+      description: '{{lorem(3, "paragraphs")}}'
+    }
+  ]
