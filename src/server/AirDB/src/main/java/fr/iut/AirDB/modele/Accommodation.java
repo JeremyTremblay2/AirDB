@@ -3,13 +3,11 @@ package fr.iut.AirDB.modele;
 import org.bson.types.ObjectId;
 
 import java.time.LocalDate;
-import java.util.Collections;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 public class Accommodation {
-    private ObjectId id;
-    private ObjectId profileId;
+    private String id;
+    private String profileId;
     private String name;
     private List<String> pictures;
     private Double rating;
@@ -19,14 +17,15 @@ public class Accommodation {
     private LocalDate startDate;
     private LocalDate endDate;
     private String profileName;
+    private String profilePicture;
     private Boolean isFavorite;
     private List<HousingCategory> housingCategories;
 
-    public ObjectId getId() {
+    public String getId() {
         return id;
     }
 
-    public ObjectId getProfileId() {
+    public String getProfileId() {
         return profileId;
     }
 
@@ -66,6 +65,10 @@ public class Accommodation {
         return profileName;
     }
 
+    public String getProfilePicture() {
+        return profilePicture;
+    }
+
     public Boolean isFavorite() {
         return isFavorite;
     }
@@ -74,9 +77,14 @@ public class Accommodation {
         return Collections.unmodifiableList(housingCategories);
     }
 
-    public Accommodation(ObjectId id, ObjectId profileId, String name, List<String> pictures, Double rating, Integer numberOfReviews,
+    public Accommodation() {
+        this("", "", "", new ArrayList<>(), 0.0, 0, "", "",
+                LocalDate.now(), LocalDate.now(), "", "", false, new ArrayList<>());
+    }
+
+    public Accommodation(String id, String profileId, String name, List<String> pictures, Double rating, Integer numberOfReviews,
                          String location, String description, LocalDate startDate, LocalDate endDate, String profileName,
-                         Boolean isFavorite, List<HousingCategory> housingCategories) {
+                         String profilePicture, Boolean isFavorite, List<HousingCategory> housingCategories) {
         this.id = id;
         this.profileId = profileId;
         this.name = name;
@@ -88,6 +96,7 @@ public class Accommodation {
         this.startDate = startDate;
         this.endDate = endDate;
         this.profileName = profileName;
+        this.profilePicture = profilePicture;
         this.isFavorite = isFavorite;
         this.housingCategories = housingCategories;
     }

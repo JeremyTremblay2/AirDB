@@ -3,10 +3,12 @@ package fr.iut.AirDB.repository.entity;
 import org.bson.types.ObjectId;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
-public class AccommodationEntity extends GenericEntity {
-    private ObjectId profileId;
+public class AccommodationEntity {
+    private String id;
+    private String profileId;
     private String name;
     private List<String> pictures;
     private Double rating;
@@ -16,13 +18,19 @@ public class AccommodationEntity extends GenericEntity {
     private LocalDate startDate;
     private LocalDate endDate;
     private String profileName;
+    private String profilePicture;
     private Boolean isFavorite;
     private List<String> housingCategories;
 
-    public AccommodationEntity(ObjectId id, ObjectId profileId, String name, List<String> pictures, Double rating,
+    public AccommodationEntity() {
+        this("", "", "", new ArrayList<>(), 0.0, 0,
+                "", "", LocalDate.now(), LocalDate.now(), "", "", false, new ArrayList<>());
+    }
+
+    public AccommodationEntity(String id, String profileId, String name, List<String> pictures, Double rating,
                                Integer numberOfReviews, String location, String description, LocalDate startDate,
-                               LocalDate endDate, String profileName, Boolean isFavorite, List<String> housingCategories) {
-        super(id);
+                               LocalDate endDate, String profileName, String profilePicture, Boolean isFavorite, List<String> housingCategories) {
+        this.id = id;
         this.profileId = profileId;
         this.name = name;
         this.pictures = pictures;
@@ -33,16 +41,25 @@ public class AccommodationEntity extends GenericEntity {
         this.startDate = startDate;
         this.endDate = endDate;
         this.profileName = profileName;
+        this.profilePicture = profilePicture;
         this.isFavorite = isFavorite;
         this.housingCategories = housingCategories;
     }
 
-    public ObjectId getProfileId() {
+    public String getProfileId() {
         return profileId;
     }
 
-    public void setProfileId(ObjectId profileId) {
+    public void setProfileId(String profileId) {
         this.profileId = profileId;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -115,6 +132,14 @@ public class AccommodationEntity extends GenericEntity {
 
     public void setProfileName(String profileName) {
         this.profileName = profileName;
+    }
+
+    public String getProfilePicture() {
+        return profilePicture;
+    }
+
+    public void setProfilePicture(String profilePicture) {
+        this.profilePicture = profilePicture;
     }
 
     public Boolean isFavorite() {

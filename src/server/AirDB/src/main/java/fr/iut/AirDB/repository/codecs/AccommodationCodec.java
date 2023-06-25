@@ -22,8 +22,8 @@ public class AccommodationCodec implements Codec<AccommodationEntity> {
     public AccommodationEntity decode(BsonReader bsonReader, DecoderContext decoderContext) {
         Document document = documentCodec.decode(bsonReader, decoderContext);
         AccommodationEntity accommodation = new AccommodationEntity(
-                document.getObjectId("_id"),
-                document.getObjectId("profileId"),
+                document.getObjectId("_id").toString(),
+                document.getObjectId("profileId").toString(),
                 document.getString("name"),
                 document.getList("pictures", String.class),
                 document.getDouble("rating"),
@@ -34,6 +34,7 @@ public class AccommodationCodec implements Codec<AccommodationEntity> {
                         .toInstant().atZone(ZoneId.systemDefault()).toLocalDate(),
                 document.getDate("endDate")
                         .toInstant().atZone(ZoneId.systemDefault()).toLocalDate(),
+                "",
                 "",
                 document.getBoolean("isFavorite"),
                 document.getList("housingCategories", String.class)
