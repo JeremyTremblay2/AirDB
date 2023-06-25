@@ -2,6 +2,7 @@ package fr.iut.AirDB.repository;
 
 import com.mongodb.MongoClientSettings;
 import com.mongodb.client.MongoCollection;
+import com.mongodb.client.model.Accumulators;
 import com.mongodb.client.model.Aggregates;
 import com.mongodb.client.model.Filters;
 import fr.iut.AirDB.converters.ProfileModelEntityConverter;
@@ -79,5 +80,19 @@ public class ProfileRepository extends AirDBRepository{
         catch (Exception e){
             return false;
         }
+    }
+
+
+    /*
+    Test for showing to you that we can do a group by in an aggregate request.
+     */
+    public void getProfileByMinimumRatingWithNumberOfHousing(int minimumRating){
+        var res = collection.aggregate(
+                Arrays.asList(
+                        Aggregates.match(Filters.gte("rating", minimumRating)),
+                        Aggregates.group("_id", Accumulators.sum("housingdIds", 1))
+                )
+        );
+        System.out.println(res);
     }
 }

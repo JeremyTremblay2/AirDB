@@ -1,10 +1,8 @@
 package fr.iut.AirDB.controllers;
 
 import fr.iut.AirDB.dto.ProfileDTO;
-import fr.iut.AirDB.modele.Profile;
 import fr.iut.AirDB.services.profiles.ProfileService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,7 +19,7 @@ public class ProfileController {
     @ResponseBody
     public ResponseEntity<ProfileDTO> GetProfileById(@PathVariable("urlParameter") String id) {
         try{
-            var profile = service.GetProfileById(id);
+            var profile = service.getProfileById(id);
             if(profile == null){
                 return ResponseEntity.notFound().build();
             }
@@ -38,7 +36,7 @@ public class ProfileController {
     @ResponseBody
     public ResponseEntity<List<ProfileDTO>> GetProfilesByName(@PathVariable("urlParameter") String name) {
         try{
-            var profiles = service.GetProfilesByName(name);
+            var profiles = service.getProfilesByName(name);
             return ResponseEntity.ok().body(profiles);
         }
         catch(Exception e){
@@ -93,6 +91,12 @@ public class ProfileController {
         catch(Exception e){
             return ResponseEntity.internalServerError().build();
         }
+    }
+
+    @GetMapping("/profiles/testAggregate")
+    @ResponseBody
+    public void getProfileByMinimumRatingWithNumberOfHousing() {
+        service.getProfileByMinimumRatingWithNumberOfHousing();
     }
 
 }
