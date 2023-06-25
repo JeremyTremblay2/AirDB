@@ -12,6 +12,7 @@ export default function App() {
   );
 }
 
+// headerShown
 const styles = StyleSheet.create({
   container: {
     flex: 1,
