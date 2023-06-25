@@ -94,7 +94,7 @@ public class AccommodationRepository extends AirDBRepository {
         return AccommodationModelEntityConverter.entitiesToModel(accommodationEntities);
     }
 
-    public List<AccommodationEntity> getItems(int count, int page) {
+    public List<Accommodation> getItems(int count, int page) {
         List<AccommodationEntity> accommodations = new ArrayList<>();
 
         Bson filter = new Document();
@@ -106,6 +106,6 @@ public class AccommodationRepository extends AirDBRepository {
                 .iterator()
                 .forEachRemaining(accommodations::add);
 
-        return accommodations;
+        return AccommodationModelEntityConverter.entitiesToModel(accommodations);
     }
 }
