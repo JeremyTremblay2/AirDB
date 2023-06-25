@@ -57,7 +57,7 @@ Here you can see the expected visual of the final application:
 
 ## 📌 Documentation
 
-Some documentation can be found in the [Wiki]("https://codefirst.iut.uca.fr/git/jeremy.tremblay/AirDB/wiki") of this application.
+Some documentation about the "client-server" part can be found in the [Wiki](https://codefirst.iut.uca.fr/git/louis.perret/AirDB/wiki/Documentation-Client-Serveur) of this application.
 
 Also, look at the `doc` folder at the root of this repository!
 
