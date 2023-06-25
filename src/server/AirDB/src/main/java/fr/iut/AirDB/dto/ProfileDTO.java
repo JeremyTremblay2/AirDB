@@ -3,6 +3,7 @@ package fr.iut.AirDB.dto;
 import fr.iut.AirDB.modele.Accommodation;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class ProfileDTO {
@@ -42,7 +43,7 @@ public class ProfileDTO {
     }
 
     public List<Accommodation> getHousing() {
-        return housing;
+        return Collections.unmodifiableList(housing);
     }
 
     public void setHousing(List<Accommodation> housing) {

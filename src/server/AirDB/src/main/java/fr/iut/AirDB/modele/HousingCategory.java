@@ -60,5 +60,10 @@ public enum HousingCategory {
     TRULLI,
     DAMMUSI,
     BEACH,
-    LAKE
+    LAKE;
+
+    @Override
+    public String toString() {
+        return name();
+    }
 }
