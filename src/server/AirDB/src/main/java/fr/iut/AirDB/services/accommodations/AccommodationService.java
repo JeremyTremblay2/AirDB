@@ -32,7 +32,7 @@ public class AccommodationService {
         return AccommodationModelDTOConverter.modelsToDTOs(repository.getAccommodationsByName(accommodationName));
     }
 
-    public boolean addProfile(AccommodationDTO accommodationDTO) {
+    public boolean addAccommodation(AccommodationDTO accommodationDTO) {
         return repository.addAccommodation(AccommodationModelDTOConverter.dtoToModel(accommodationDTO));
     }
 
