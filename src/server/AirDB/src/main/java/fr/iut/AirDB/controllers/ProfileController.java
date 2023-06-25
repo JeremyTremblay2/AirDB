@@ -78,4 +78,21 @@ public class ProfileController {
             return ResponseEntity.internalServerError().build();
         }
     }
+
+    @RequestMapping(value="/profiles/update", method=RequestMethod.PUT, consumes = "application/json")
+    public ResponseEntity updateProfile(@RequestBody ProfileDTO profile) {
+        try {
+            var res = service.updateProfile(profile);
+            if(res){
+                return ResponseEntity.ok().build();
+            }
+            else{
+                return ResponseEntity.badRequest().build();
+            }
+        }
+        catch(Exception e){
+            return ResponseEntity.internalServerError().build();
+        }
+    }
+
 }

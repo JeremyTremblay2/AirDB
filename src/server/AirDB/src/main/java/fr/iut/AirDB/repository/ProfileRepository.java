@@ -7,8 +7,10 @@ import fr.iut.AirDB.converters.ProfileModelEntityConverter;
 import fr.iut.AirDB.repository.entity.ProfileEntity;
 import fr.iut.AirDB.modele.Profile;
 import fr.iut.AirDB.repository.codecs.ProfileEntityCodec;
+import org.bson.Document;
 import org.bson.codecs.configuration.CodecRegistries;
 import org.bson.codecs.configuration.CodecRegistry;
+import org.bson.conversions.Bson;
 import org.bson.types.ObjectId;
 
 import java.util.ArrayList;
@@ -58,6 +60,17 @@ public class ProfileRepository extends AirDBRepository{
             return true;
         }
         catch(Exception e){
+            return false;
+        }
+    }
+
+    public boolean updateProfile(Profile profile){
+        try {
+            Bson query = eq("_id", profile.getId());
+            collection.replaceOne(query, ProfileModelEntityConverter.modelToEntity(profile));
+            return true;
+        }
+        catch (Exception e){
             return false;
         }
     }

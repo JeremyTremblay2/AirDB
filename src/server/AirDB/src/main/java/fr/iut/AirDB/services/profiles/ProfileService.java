@@ -32,4 +32,8 @@ public class ProfileService {
     public boolean deleteProfile(String id){
         return repository.removeProfile(id);
     }
+
+    public boolean updateProfile(ProfileDTO profile){
+        return repository.updateProfile(ProfileModelDTOConverter.dtoToModel(profile));
+    }
 }

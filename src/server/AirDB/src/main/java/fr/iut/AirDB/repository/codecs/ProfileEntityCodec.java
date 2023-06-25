@@ -17,7 +17,7 @@ public class ProfileEntityCodec implements Codec<ProfileEntity> {
     @Override
     public ProfileEntity decode(BsonReader bsonReader, DecoderContext decoderContext) {
         ProfileEntity profileEntity = new ProfileEntity();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         bsonReader.readStartDocument();
         try {
             while (bsonReader.readBsonType() != BsonType.END_OF_DOCUMENT) {
@@ -49,12 +49,12 @@ public class ProfileEntityCodec implements Codec<ProfileEntity> {
                         break;
                     case "hostingSince":
                         var date = bsonReader.readString();
-                        date = date.split(" ")[0].replace("T", " ");
+                        date = date.split(" ")[0].replace("T", " ").split(" ")[0];
                         profileEntity.hostingSince = LocalDate.parse(date, formatter);
                         break;
                     case "dateOfBirth":
                         var d = bsonReader.readString();
-                        d = d.split(" ")[0].replace("T",  " ");
+                        d = d.split(" ")[0].replace("T",  " ").split(" ")[0];
                         profileEntity.dateOfBirth = LocalDate.parse(d, formatter);
                         break;
                     case "rating":
