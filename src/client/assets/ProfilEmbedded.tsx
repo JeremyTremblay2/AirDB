@@ -1,4 +1,4 @@
-class ProfilEmbedded {
+export class ProfilEmbedded {
     id: string;
     name: string;
     image: string;

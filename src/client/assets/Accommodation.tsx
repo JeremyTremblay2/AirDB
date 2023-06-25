@@ -1,4 +1,6 @@
-class Accommodation {
+import { ProfilEmbedded } from "./ProfilEmbedded";
+
+export class Accommodation {
     id: string;
     name: string;
     pictures: [string];

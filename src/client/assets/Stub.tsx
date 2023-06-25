@@ -1,5 +1,8 @@
 const dateString = "2019-03-08T04:56:34 -01:00";
 
+import { Accommodation } from "./Accommodation";
+import { ProfilEmbedded } from "./ProfilEmbedded";
+
 export const ACCOMMODATION_LIST : Accommodation[] = [
     new Accommodation(
         "64705369ba8f07f241275c4a", 
