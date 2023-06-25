@@ -4,6 +4,7 @@ import com.mongodb.MongoClientSettings;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.model.Aggregates;
 import com.mongodb.client.model.Filters;
+import com.mongodb.client.model.IndexOptions;
 import fr.iut.AirDB.converters.AccommodationModelEntityConverter;
 import fr.iut.AirDB.converters.ProfileModelEntityConverter;
 import fr.iut.AirDB.modele.Accommodation;
@@ -35,6 +36,9 @@ public class AccommodationRepository extends AirDBRepository {
         CodecRegistry customCodecRegistry = CodecRegistries.fromRegistries(
                 registry,
                 MongoClientSettings.getDefaultCodecRegistry());
+        Document index = new Document("isFavorite", 1); // index on isFavorite
+        IndexOptions options = new IndexOptions().partialFilterExpression(new Document("isFavorite", true));
+        database.getCollection(collection).createIndex(index, options);
         this.collection = database.getCollection(collection, AccommodationEntity.class).withCodecRegistry(customCodecRegistry);
     }
 
