@@ -1,5 +1,7 @@
 package fr.iut.AirDB.services.profiles;
 
+import fr.iut.AirDB.converters.ProfileModelDTOConverter;
+import fr.iut.AirDB.dto.ProfileDTO;
 import fr.iut.AirDB.modele.Profile;
 import fr.iut.AirDB.repository.ProfileRepository;
 
@@ -15,12 +17,15 @@ public class ProfileService {
         repository = new ProfileRepository(collection, connectionString, databaseName);
     }
 
-    public Profile GetProfileById(String idProfile){
-        return repository.getProfileById(idProfile);
+    public ProfileDTO GetProfileById(String idProfile){
+        return ProfileModelDTOConverter.modelToDTO(repository.getProfileById(idProfile));
     }
 
-    public List<Profile> GetProfilesByName(String nameProfile){
-        return repository.getProfilesByName(nameProfile);
+    public List<ProfileDTO> GetProfilesByName(String nameProfile){
+        return ProfileModelDTOConverter.modelsToDTOs(repository.getProfilesByName(nameProfile));
     }
 
+    public boolean addProfile(ProfileDTO profile){
+        return repository.addProfile(ProfileModelDTOConverter.dtoToModel(profile));
+    }
 }

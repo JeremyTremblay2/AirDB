@@ -1,10 +1,12 @@
-package fr.iut.AirDB.modele;
+package fr.iut.AirDB.dto;
+
+import fr.iut.AirDB.modele.Accommodation;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Profile {
+public class ProfileDTO {
 
     private String id;
     private List<Accommodation> housing;
@@ -17,11 +19,11 @@ public class Profile {
     private double rating;
     private int numberOfReviews;
 
-    public Profile() {
+    public ProfileDTO() {
         this(new String(), new ArrayList<Accommodation>(), "", LocalDate.now(), LocalDate.now(), "", "", "");
     }
 
-    public Profile(String id, List<Accommodation> housing, String profileName, LocalDate hostingSince, LocalDate dateOfBirth, String profilePicture, String location, String description) {
+    public ProfileDTO(String id, List<Accommodation> housing, String profileName, LocalDate hostingSince, LocalDate dateOfBirth, String profilePicture, String location, String description) {
         this.id = id;
         this.housing = housing;
         this.profileName = profileName;

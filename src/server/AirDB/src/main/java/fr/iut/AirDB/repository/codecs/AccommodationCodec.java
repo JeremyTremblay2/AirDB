@@ -1,7 +1,7 @@
 package fr.iut.AirDB.repository.codecs;
 
 import com.mongodb.MongoClientSettings;
-import fr.iut.AirDB.entity.AccommodationEntity;
+import fr.iut.AirDB.repository.entity.AccommodationEntity;
 import org.bson.BsonReader;
 import org.bson.BsonWriter;
 import org.bson.Document;

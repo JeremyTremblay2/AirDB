@@ -1,6 +1,6 @@
 package fr.iut.AirDB.repository.codecs;
 
-import fr.iut.AirDB.entity.ProfileEntity;
+import fr.iut.AirDB.repository.entity.ProfileEntity;
 import org.bson.BsonReader;
 import org.bson.BsonType;
 import org.bson.BsonWriter;
@@ -76,7 +76,32 @@ public class ProfileEntityCodec implements Codec<ProfileEntity> {
 
     @Override
     public void encode(BsonWriter bsonWriter, ProfileEntity profileEntity, EncoderContext encoderContext) {
-
+        bsonWriter.writeStartDocument();
+        bsonWriter.writeName("_id");
+        bsonWriter.writeString(profileEntity.id);
+        bsonWriter.writeName("housingIds");
+        bsonWriter.writeStartArray();
+        for(var housingId : profileEntity.housingIds){
+            bsonWriter.writeString(housingId);
+        }
+        bsonWriter.writeEndArray();
+        bsonWriter.writeName("profilName");
+        bsonWriter.writeString(profileEntity.profileName);
+        bsonWriter.writeName("profilePicture");
+        bsonWriter.writeString(profileEntity.profilePicture);
+        bsonWriter.writeName("location");
+        bsonWriter.writeString(profileEntity.location);
+        bsonWriter.writeName("description");
+        bsonWriter.writeString(profileEntity.description);
+        bsonWriter.writeName("hostingSince");
+        bsonWriter.writeString(profileEntity.hostingSince.toString());
+        bsonWriter.writeName("dateOfBirth");
+        bsonWriter.writeString(profileEntity.dateOfBirth.toString());
+        bsonWriter.writeName("rating");
+        bsonWriter.writeDouble(profileEntity.rating);
+        bsonWriter.writeName("numberOfReviews");
+        bsonWriter.writeInt32(profileEntity.numberOfReviews);
+        bsonWriter.writeEndDocument();
     }
 
     @Override

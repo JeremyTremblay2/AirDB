@@ -1,6 +1,6 @@
 package fr.iut.AirDB.converters;
 
-import fr.iut.AirDB.entity.ProfileEntity;
+import fr.iut.AirDB.repository.entity.ProfileEntity;
 import fr.iut.AirDB.modele.Accommodation;
 import fr.iut.AirDB.modele.Profile;
 

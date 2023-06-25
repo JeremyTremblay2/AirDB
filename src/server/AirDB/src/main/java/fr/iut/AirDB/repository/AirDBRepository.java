@@ -3,7 +3,6 @@ package fr.iut.AirDB.repository;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoDatabase;
-import fr.iut.AirDB.entity.GenericEntity;
 
 public abstract class AirDBRepository {
     protected final MongoDatabase database;

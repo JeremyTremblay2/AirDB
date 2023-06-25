@@ -4,7 +4,7 @@ import com.mongodb.MongoClientSettings;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.model.Filters;
 import fr.iut.AirDB.converters.ProfileModelEntityConverter;
-import fr.iut.AirDB.entity.ProfileEntity;
+import fr.iut.AirDB.repository.entity.ProfileEntity;
 import fr.iut.AirDB.modele.Profile;
 import fr.iut.AirDB.repository.codecs.ProfileEntityCodec;
 import org.bson.codecs.configuration.CodecRegistries;
@@ -39,6 +39,12 @@ public class ProfileRepository extends AirDBRepository{
     }
 
     public boolean addProfile(Profile profile){
-        return true;
+        try{
+            collection.insertOne(ProfileModelEntityConverter.modelToEntity(profile));
+            return true;
+        }
+        catch(Exception e){
+            return false;
+        }
     }
 }

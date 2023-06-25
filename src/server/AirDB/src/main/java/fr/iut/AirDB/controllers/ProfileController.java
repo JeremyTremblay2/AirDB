@@ -1,5 +1,6 @@
 package fr.iut.AirDB.controllers;
 
+import fr.iut.AirDB.dto.ProfileDTO;
 import fr.iut.AirDB.modele.Profile;
 import fr.iut.AirDB.services.profiles.ProfileService;
 import org.springframework.web.bind.annotation.*;
@@ -16,15 +17,21 @@ public class ProfileController {
     private ProfileService service = new ProfileService(COLLECTION, URI_MONGODB, DATABASE);
     @GetMapping("/profiles/id/{urlParameter}")
     @ResponseBody
-    public Profile GetProfileById(@PathVariable("urlParameter") String id) {
+    public ProfileDTO GetProfileById(@PathVariable("urlParameter") String id) {
         var profile = service.GetProfileById(id);
         return profile;
     }
 
     @GetMapping("/profiles/name/{urlParameter}")
     @ResponseBody
-    public List<Profile> GetProfilesByName(@PathVariable("urlParameter") String name) {
+    public List<ProfileDTO> GetProfilesByName(@PathVariable("urlParameter") String name) {
         var profiles = service.GetProfilesByName(name);
         return profiles;
+    }
+
+    @PostMapping("/profiles/add")
+    @ResponseBody
+    public void getFoos(@RequestParam ProfileDTO profile) {
+        service.addProfile(profile);
     }
 }
