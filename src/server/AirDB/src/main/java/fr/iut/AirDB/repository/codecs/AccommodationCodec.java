@@ -1,4 +1,4 @@
-package fr.iut.AirDB.repository.codecs.accommodations;
+package fr.iut.AirDB.repository.codecs;
 
 import com.mongodb.MongoClientSettings;
 import fr.iut.AirDB.entity.AccommodationEntity;

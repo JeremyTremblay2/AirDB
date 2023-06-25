@@ -1,16 +1,30 @@
 package fr.iut.AirDB.controllers;
 
+import fr.iut.AirDB.modele.Profile;
 import fr.iut.AirDB.services.profiles.ProfileService;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 public class ProfileController {
-    @RequestMapping("/")
-    public String home() {
-        String uri = "mongodb://localhost:27017";
-        ProfileService service = new ProfileService("profiles", uri, "local");
-        var profile = service.GetProfileById("6470526076115afa0b257e9e");
-        return profile.profileName;
+
+    private static final String URI_MONGODB = "mongodb://localhost:27017";
+    private static final String DATABASE = "local";
+    private static final String COLLECTION = "profiles";
+
+    private ProfileService service = new ProfileService(COLLECTION, URI_MONGODB, DATABASE);
+    @GetMapping("/profiles/id/{urlParameter}")
+    @ResponseBody
+    public Profile GetProfileById(@PathVariable("urlParameter") String id) {
+        var profile = service.GetProfileById(id);
+        return profile;
+    }
+
+    @GetMapping("/profiles/name/{urlParameter}")
+    @ResponseBody
+    public List<Profile> GetProfilesByName(@PathVariable("urlParameter") String name) {
+        var profiles = service.GetProfilesByName(name);
+        return profiles;
     }
 }

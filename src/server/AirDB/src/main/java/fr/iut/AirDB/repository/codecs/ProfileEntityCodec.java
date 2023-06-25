@@ -1,4 +1,4 @@
-package fr.iut.AirDB.repository.mappers.profile_mappers;
+package fr.iut.AirDB.repository.codecs;
 
 import fr.iut.AirDB.entity.ProfileEntity;
 import org.bson.BsonReader;

@@ -1,7 +1,9 @@
 package fr.iut.AirDB.services.profiles;
 
-import fr.iut.AirDB.entity.ProfileEntity;
+import fr.iut.AirDB.modele.Profile;
 import fr.iut.AirDB.repository.ProfileRepository;
+
+import java.util.List;
 
 import static com.mongodb.client.model.Filters.eq;
 
@@ -13,8 +15,12 @@ public class ProfileService {
         repository = new ProfileRepository(collection, connectionString, databaseName);
     }
 
-    public ProfileEntity GetProfileById(String idProfile){
-        return repository.GetProfileById(idProfile);
+    public Profile GetProfileById(String idProfile){
+        return repository.getProfileById(idProfile);
+    }
+
+    public List<Profile> GetProfilesByName(String nameProfile){
+        return repository.getProfilesByName(nameProfile);
     }
 
 }

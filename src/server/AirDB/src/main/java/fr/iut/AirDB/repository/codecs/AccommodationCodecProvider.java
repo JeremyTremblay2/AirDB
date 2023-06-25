@@ -1,4 +1,4 @@
-package fr.iut.AirDB.repository.codecs.accommodations;
+package fr.iut.AirDB.repository.codecs;
 
 import fr.iut.AirDB.entity.AccommodationEntity;
 import org.bson.codecs.Codec;

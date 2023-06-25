@@ -1,25 +1,5 @@
 package fr.iut.AirDB.repository;
 
-import com.mongodb.MongoClientSettings;
-import com.mongodb.client.FindIterable;
-import com.mongodb.client.MongoCollection;
-import fr.iut.AirDB.entity.AccommodationEntity;
-import fr.iut.AirDB.modele.HousingCategory;
-import fr.iut.AirDB.modele.Accommodation;
-import fr.iut.AirDB.repository.codecs.accommodations.AccommodationCodec;
-import fr.iut.AirDB.repository.codecs.accommodations.AccommodationCodecProvider;
-import org.bson.Document;
-import org.bson.codecs.configuration.CodecRegistries;
-import org.bson.codecs.configuration.CodecRegistry;
-import org.bson.conversions.Bson;
-import org.bson.types.ObjectId;
-import org.springframework.stereotype.Repository;
-
-import java.time.LocalDate;
-import java.time.ZoneId;
-import java.util.ArrayList;
-import java.util.List;
-
 /*@Repository
 public class AccommodationRepository extends AirDBRepository {
     private final MongoCollection<AccommodationEntity> collection;
