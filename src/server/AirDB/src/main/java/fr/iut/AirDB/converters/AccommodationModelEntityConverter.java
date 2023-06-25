@@ -11,7 +11,7 @@ import java.util.List;
 
 public class AccommodationModelEntityConverter {
     public static Accommodation entityToModel(AccommodationEntity accommodation){
-        return new Accommodation(accommodation.getId().toString(), accommodation.getProfileId().toString(), accommodation.getName(), accommodation.getPictures(),
+        return new Accommodation(accommodation.getId(), accommodation.getProfileId(), accommodation.getName(), accommodation.getPictures(),
                 accommodation.getRating(), accommodation.getNumberOfReviews(), accommodation.getLocation(),
                 accommodation.getDescription(), accommodation.getStartDate(), accommodation.getEndDate(),
                 accommodation.getProfileName(), accommodation.getProfilePicture(), accommodation.isFavorite(),

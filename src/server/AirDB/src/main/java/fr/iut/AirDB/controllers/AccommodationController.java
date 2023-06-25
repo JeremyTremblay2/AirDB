@@ -12,7 +12,7 @@ import java.util.List;
 public class AccommodationController {
     private static final String URI_MONGODB = "mongodb://localhost:27017";
     private static final String DATABASE = "local";
-    private static final String COLLECTION = "profiles";
+    private static final String COLLECTION = "accomodations";
 
     private AccommodationService service = new AccommodationService(COLLECTION, URI_MONGODB, DATABASE);
     @GetMapping("/accommodations/id/{urlParameter}")
@@ -69,7 +69,7 @@ public class AccommodationController {
     }
 
     @RequestMapping(value="/accommodations/add", method = RequestMethod.POST, consumes = "application/json")
-    public ResponseEntity<?> addProfile(@RequestBody AccommodationDTO accommodation) {
+    public ResponseEntity<?> addAccomodation(@RequestBody AccommodationDTO accommodation) {
         try {
             var res = service.addAccommodation(accommodation);
             if (res) {
@@ -102,7 +102,7 @@ public class AccommodationController {
     }
 
     @RequestMapping(value="/accommodations/update", method = RequestMethod.PUT, consumes = "application/json")
-    public ResponseEntity<?> updateProfile(@RequestBody AccommodationDTO accommodation) {
+    public ResponseEntity<?> updateAccodomation(@RequestBody AccommodationDTO accommodation) {
         try {
             var res = service.updateAccommodation(accommodation);
             if (res){

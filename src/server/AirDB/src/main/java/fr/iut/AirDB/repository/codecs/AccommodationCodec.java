@@ -9,7 +9,9 @@ import org.bson.codecs.Codec;
 import org.bson.codecs.DecoderContext;
 import org.bson.codecs.EncoderContext;
 
+import java.time.LocalDate;
 import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 
 public class AccommodationCodec implements Codec<AccommodationEntity> {
     private final Codec<Document> documentCodec;
@@ -21,23 +23,26 @@ public class AccommodationCodec implements Codec<AccommodationEntity> {
     @Override
     public AccommodationEntity decode(BsonReader bsonReader, DecoderContext decoderContext) {
         Document document = documentCodec.decode(bsonReader, decoderContext);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        var startDate = document.getString("startDate");
+        startDate = startDate.split(" ")[0].replace("T", " ").split(" ")[0];
+        var endDate = document.getString("endDate");
+        endDate = endDate.split(" ")[0].replace("T", " ").split(" ")[0];
         AccommodationEntity accommodation = new AccommodationEntity(
-                document.getObjectId("_id").toString(),
-                document.getObjectId("profileId").toString(),
+                document.getString("_id"),
+                document.getString("profileId"),
                 document.getString("name"),
                 document.getList("pictures", String.class),
                 document.getDouble("rating"),
                 document.getInteger("numberOfReviews"),
                 document.getString("location"),
                 document.getString("description"),
-                document.getDate("startDate")
-                        .toInstant().atZone(ZoneId.systemDefault()).toLocalDate(),
-                document.getDate("endDate")
-                        .toInstant().atZone(ZoneId.systemDefault()).toLocalDate(),
+                LocalDate.parse(startDate, formatter),
+                LocalDate.parse(endDate, formatter),
                 "",
                 "",
                 document.getBoolean("isFavorite"),
-                document.getList("housingCategories", String.class)
+                document.getList("housingCategory", String.class)
         );
         return accommodation;
     }
