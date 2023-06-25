@@ -25,6 +25,10 @@ public class Accommodation {
         return id;
     }
 
+    public void setId(String id) {
+        this.id = id;
+    }
+
     public String getProfileId() {
         return profileId;
     }
