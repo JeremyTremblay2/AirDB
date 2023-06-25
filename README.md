@@ -53,7 +53,9 @@ Here you can see the expected visual of the final application:
 
 ## ⚙️ How to run the app ?
 
-> To be added.
+1. Start the server under `src/server` by opening it with IntelliJ for example. 
+2. Start the project and you can test the requests and the API locally by udsing a dedicated client, Postman for example.
+3. Start the client by going under `scr/client` and run `npm start` and run your expo client.
 
 ## 📌 Documentation
 
