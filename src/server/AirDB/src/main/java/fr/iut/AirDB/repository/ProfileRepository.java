@@ -2,6 +2,7 @@ package fr.iut.AirDB.repository;
 
 import com.mongodb.MongoClientSettings;
 import com.mongodb.client.MongoCollection;
+import com.mongodb.client.model.Aggregates;
 import com.mongodb.client.model.Filters;
 import fr.iut.AirDB.converters.ProfileModelEntityConverter;
 import fr.iut.AirDB.repository.entity.ProfileEntity;
@@ -14,6 +15,7 @@ import org.bson.conversions.Bson;
 import org.bson.types.ObjectId;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Pattern;
 
@@ -39,7 +41,11 @@ public class ProfileRepository extends AirDBRepository{
     public List<Profile> getProfilesByName(String nameProfile){
         List<ProfileEntity> profileEntities = new ArrayList<>();
         Pattern pattern = Pattern.compile(".*" + nameProfile + ".*", Pattern.CASE_INSENSITIVE);
-        collection.find(Filters.regex("profilName", pattern)).into(profileEntities);
+        collection.aggregate(
+                Arrays.asList(
+                        Aggregates.match(Filters.regex("profilName", pattern))
+                )
+        ).into(profileEntities);
         return ProfileModelEntityConverter.entitiesToModel(profileEntities);
     }
 
