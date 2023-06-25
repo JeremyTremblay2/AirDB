@@ -1,4 +1,4 @@
-package fr.iut.AirDB.entity;
+package fr.iut.AirDB.modele;
 
 public enum HousingCategory {
     ROOMS,

@@ -1,10 +1,10 @@
-package fr.iut.AirDB.entity;
+package fr.iut.AirDB.repository.entity;
 
 import org.bson.types.ObjectId;
 
 import java.time.LocalDate;
 
-public record Review(
+public record ReviewEntity(
     ObjectId id,
     ObjectId authorId,
     String targetProfileId,
