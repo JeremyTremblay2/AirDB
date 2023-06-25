@@ -2,17 +2,16 @@ package fr.iut.AirDB.dto;
 
 import fr.iut.AirDB.modele.Accommodation;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 public class ProfileDTO {
 
-    private String id;
+    private String _id;
     private List<Accommodation> housing;
-    private String profileName;
-    private LocalDate hostingSince;
-    private LocalDate dateOfBirth;
+    private String profilName;
+    private String hostingSince;
+    private String dateOfBirth;
     private String profilePicture;
     private String location;
     private String description;
@@ -20,13 +19,13 @@ public class ProfileDTO {
     private int numberOfReviews;
 
     public ProfileDTO() {
-        this(new String(), new ArrayList<Accommodation>(), "", LocalDate.now(), LocalDate.now(), "", "", "");
+        this(new String(), new ArrayList<Accommodation>(), "", "", "", "", "", "");
     }
 
-    public ProfileDTO(String id, List<Accommodation> housing, String profileName, LocalDate hostingSince, LocalDate dateOfBirth, String profilePicture, String location, String description) {
-        this.id = id;
+    public ProfileDTO(String _id, List<Accommodation> housing, String profilName, String hostingSince, String dateOfBirth, String profilePicture, String location, String description) {
+        this._id = _id;
         this.housing = housing;
-        this.profileName = profileName;
+        this.profilName = profilName;
         this.hostingSince = hostingSince;
         this.dateOfBirth = dateOfBirth;
         this.profilePicture = profilePicture;
@@ -34,12 +33,12 @@ public class ProfileDTO {
         this.description = description;
     }
 
-    public String getId() {
-        return id;
+    public String get_id() {
+        return _id;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void set_id(String _id) {
+        this._id = _id;
     }
 
     public List<Accommodation> getHousing() {
@@ -50,27 +49,27 @@ public class ProfileDTO {
         this.housing = housing;
     }
 
-    public String getProfileName() {
-        return profileName;
+    public String getProfilName() {
+        return profilName;
     }
 
-    public void setProfileName(String profileName) {
-        this.profileName = profileName;
+    public void setProfilName(String profilName) {
+        this.profilName = profilName;
     }
 
-    public LocalDate getHostingSince() {
+    public String getHostingSince() {
         return hostingSince;
     }
 
-    public void setHostingSince(LocalDate hostingSince) {
+    public void setHostingSince(String hostingSince) {
         this.hostingSince = hostingSince;
     }
 
-    public LocalDate getDateOfBirth() {
+    public String getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setDateOfBirth(LocalDate dateOfBirth) {
+    public void setDateOfBirth(String dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 

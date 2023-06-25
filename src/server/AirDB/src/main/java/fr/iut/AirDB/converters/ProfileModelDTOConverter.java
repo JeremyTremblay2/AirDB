@@ -3,19 +3,19 @@ package fr.iut.AirDB.converters;
 import fr.iut.AirDB.dto.ProfileDTO;
 import fr.iut.AirDB.modele.Accommodation;
 import fr.iut.AirDB.modele.Profile;
-import fr.iut.AirDB.repository.entity.ProfileEntity;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 public class ProfileModelDTOConverter {
 
     public static Profile dtoToModel(ProfileDTO profile){
-        return new Profile(profile.getId(), new ArrayList<Accommodation>(), profile.getProfileName(), profile.getHostingSince(), profile.getDateOfBirth(), profile.getProfilePicture(), profile.getLocation(), profile.getDescription());
+        return new Profile(profile.get_id(), new ArrayList<Accommodation>(), profile.getProfilName(), LocalDate.parse(profile.getHostingSince()), LocalDate.parse(profile.getDateOfBirth()), profile.getProfilePicture(), profile.getLocation(), profile.getDescription());
     }
 
     public static ProfileDTO modelToDTO(Profile profile){
-        return new ProfileDTO(profile.getId(), new ArrayList<Accommodation>(), profile.getProfileName(), profile.getHostingSince(), profile.getDateOfBirth(), profile.getProfilePicture(), profile.getLocation(), profile.getDescription());
+        return new ProfileDTO(profile.getId(), new ArrayList<Accommodation>(), profile.getProfileName(), profile.getHostingSince().toString(), profile.getDateOfBirth().toString(), profile.getProfilePicture(), profile.getLocation(), profile.getDescription());
     }
 
     public static List<Profile> dtosToModel(List<ProfileDTO> profiles){

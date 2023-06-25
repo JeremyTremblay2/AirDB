@@ -9,10 +9,13 @@ import fr.iut.AirDB.modele.Profile;
 import fr.iut.AirDB.repository.codecs.ProfileEntityCodec;
 import org.bson.codecs.configuration.CodecRegistries;
 import org.bson.codecs.configuration.CodecRegistry;
+import org.bson.types.ObjectId;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
+
+import static com.mongodb.client.model.Filters.eq;
 
 public class ProfileRepository extends AirDBRepository{
 
@@ -28,7 +31,7 @@ public class ProfileRepository extends AirDBRepository{
     }
 
     public Profile getProfileById(String idProfile) {
-        return ProfileModelEntityConverter.entityToModel(collection.find(Filters.eq("_id", idProfile)).first());
+        return ProfileModelEntityConverter.entityToModel(collection.find(eq("_id", idProfile)).first());
     }
 
     public List<Profile> getProfilesByName(String nameProfile){
@@ -40,7 +43,18 @@ public class ProfileRepository extends AirDBRepository{
 
     public boolean addProfile(Profile profile){
         try{
+            profile.setId(new ObjectId().toString());
             collection.insertOne(ProfileModelEntityConverter.modelToEntity(profile));
+            return true;
+        }
+        catch(Exception e){
+            return false;
+        }
+    }
+
+    public boolean removeProfile(String id){
+        try{
+            collection.deleteOne(eq("_id", id));
             return true;
         }
         catch(Exception e){

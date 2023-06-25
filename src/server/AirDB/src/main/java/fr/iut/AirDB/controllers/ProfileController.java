@@ -3,6 +3,8 @@ package fr.iut.AirDB.controllers;
 import fr.iut.AirDB.dto.ProfileDTO;
 import fr.iut.AirDB.modele.Profile;
 import fr.iut.AirDB.services.profiles.ProfileService;
+import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,21 +19,63 @@ public class ProfileController {
     private ProfileService service = new ProfileService(COLLECTION, URI_MONGODB, DATABASE);
     @GetMapping("/profiles/id/{urlParameter}")
     @ResponseBody
-    public ProfileDTO GetProfileById(@PathVariable("urlParameter") String id) {
-        var profile = service.GetProfileById(id);
-        return profile;
+    public ResponseEntity<ProfileDTO> GetProfileById(@PathVariable("urlParameter") String id) {
+        try{
+            var profile = service.GetProfileById(id);
+            if(profile == null){
+                return ResponseEntity.notFound().build();
+            }
+            else{
+                return ResponseEntity.ok().body(profile);
+            }
+        }
+        catch(Exception e){
+            return ResponseEntity.internalServerError().build();
+        }
     }
 
     @GetMapping("/profiles/name/{urlParameter}")
     @ResponseBody
-    public List<ProfileDTO> GetProfilesByName(@PathVariable("urlParameter") String name) {
-        var profiles = service.GetProfilesByName(name);
-        return profiles;
+    public ResponseEntity<List<ProfileDTO>> GetProfilesByName(@PathVariable("urlParameter") String name) {
+        try{
+            var profiles = service.GetProfilesByName(name);
+            return ResponseEntity.ok().body(profiles);
+        }
+        catch(Exception e){
+            return ResponseEntity.internalServerError().build();
+        }
     }
 
-    @PostMapping("/profiles/add")
+    @RequestMapping(value="/profiles/add", method=RequestMethod.POST, consumes = "application/json")
+    public ResponseEntity addProfile(@RequestBody ProfileDTO profile) {
+        try {
+            var res = service.addProfile(profile);
+            if(res){
+                return ResponseEntity.ok().build();
+            }
+            else{
+                return ResponseEntity.badRequest().build();
+            }
+        }
+        catch(Exception e){
+            return ResponseEntity.internalServerError().build();
+        }
+    }
+
+    @RequestMapping(value="/profiles/remove/{urlParameter}", method=RequestMethod.GET)
     @ResponseBody
-    public void getFoos(@RequestParam ProfileDTO profile) {
-        service.addProfile(profile);
+    public ResponseEntity removeProfile(@PathVariable("urlParameter") String id) {
+        try{
+            var res = service.deleteProfile(id);
+            if(res){
+                return ResponseEntity.ok().build();
+            }
+            else{
+                return ResponseEntity.badRequest().build();
+            }
+        }
+        catch(Exception e){
+            return ResponseEntity.internalServerError().build();
+        }
     }
 }

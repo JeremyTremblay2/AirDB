@@ -28,4 +28,8 @@ public class ProfileService {
     public boolean addProfile(ProfileDTO profile){
         return repository.addProfile(ProfileModelDTOConverter.dtoToModel(profile));
     }
+
+    public boolean deleteProfile(String id){
+        return repository.removeProfile(id);
+    }
 }
