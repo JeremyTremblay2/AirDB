@@ -15,7 +15,6 @@ export default function AccommodationListItem(props: AccommodationListItemProps)
                     <Text>Name : {props.item.name}</Text>
                     <Text>Name : {props.item.rating}</Text>
                     <Text>Near {props.item.location}</Text>
-                    <Text>{props.item.startDate}</Text>
                     <Text>{props.item.price} night</Text>
                 </View>
             </View>

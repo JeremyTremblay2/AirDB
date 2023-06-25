@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 
-export default function AccommodationdetailsScreen() {
+export default function AccommodationDetailsScreen() {
     return (
         <View style={styles.container}>
             <View style={styles.centered}>

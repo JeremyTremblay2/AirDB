@@ -1,8 +1,9 @@
 import React from "react";
-import { View, Text, StyleSheet, FlatList } from "react-native";
+import { View, Text, StyleSheet, FlatList, TouchableHighlight } from "react-native";
 import { Accommodation } from "../assets/Accommodation";
 import { ACCOMMODATION_LIST } from "../assets/Stub";
 import AccommodationListItem from "../components/AccommodationListItem";
+import AccommodationDetailsScreen from "./AccommodationDetailsScreen";
 
 export default function AccomodationListScreen() {
     return (
